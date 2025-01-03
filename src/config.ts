@@ -396,6 +396,13 @@ CQIDAQAB
     return this.simulatorUrl;
   }
 
+  public getSimulatorUrlUI(): string {
+    if (this.simulatorUrl.includes('host.docker.internal')) {
+      return this.simulatorUrl.replace('host.docker.internal', 'localhost')
+    }
+    return this.simulatorUrl
+  }
+
   public setSimulatorUrl(simulatorUrl: string): void {
     this.simulatorUrl = simulatorUrl;
   }
